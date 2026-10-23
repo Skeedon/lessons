@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#172622">
+    <meta name="description" content="Тренажёр Senior .NET: 36 практических вопросов, самостоятельные ответы, разборы и прогресс по шести темам.">
+    <title>Senior .NET — Interview Lab</title>
+    <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <script type="module" src="./assets/js/app.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#question-title">Перейти к вопросу</a>
+    <aside class="sidebar" aria-label="Темы подготовки">
+      <a class="brand" href="./" aria-label="Interview Lab — главная">
+        <span class="brand-mark">/.</span>
+        <span>interview<span class="brand-light">lab</span><small>SENIOR .NET</small></span>
+      </a>
+      <div class="side-section">ПРАКТИКА <span>01—06</span></div>
+      <nav id="topic-nav" aria-label="Выбор темы"></nav>
+      <div class="side-note">
+        <span class="note-symbol">✳</span>
+        <p>Сильный ответ —<br>это ход мысли.</p>
+        <small>Объясняй причины, границы<br>и компромиссы решений.</small>
+      </div>
+      <button class="side-help about-open"><span class="circle-i">i</span> Как заниматься</button>
+      <div class="side-footer"><span class="small-dot"></span> Твоя следующая ступень</div>
+    </aside>
+
+    <div class="workspace">
+      <header class="topbar">
+        <div class="breadcrumb">ПОДГОТОВКА <span>/</span> ТЕХНИЧЕСКОЕ ИНТЕРВЬЮ</div>
+        <div class="header-controls">
+          <button class="header-help about-open" aria-label="Как заниматься">?</button>
+          <span class="personal-badge">Личная практика</span>
+        </div>
+      </header>
+      <main>
+        <section class="intro" aria-labelledby="page-title">
+          <div>
+            <div class="eyebrow"><span></span> ОТ ЗНАНИЙ К УВЕРЕННОМУ ОТВЕТУ</div>
+            <h1 id="page-title">Твой следующий уровень<span>.</span></h1>
+            <p>Senior .NET — практикуйся в своём темпе.<br class="mobile-break"> Один вопрос, твой ответ и честный разбор.</p>
+          </div>
+          <div class="intro-number"><strong>36</strong><span>вопросов<br>по 6 направлениям</span></div>
+        </section>
+
+        <div class="practice-toolbar">
+          <div class="mode-label"><span class="live-dot"></span> Режим интервью</div>
+          <div class="toolbar-controls">
+            <label class="sr-only" for="status-filter">Фильтр по прогрессу</label>
+            <select id="status-filter">
+              <option value="all">Все вопросы</option>
+              <option value="new">Без оценки</option>
+              <option value="repeat">На повторение</option>
+              <option value="good">Уверенно</option>
+            </select>
+            <button id="bank-button" class="icon-button" aria-label="Открыть список вопросов" title="Список вопросов">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="6" height="6" rx="1"/><rect x="14" y="4" width="6" height="6" rx="1"/><rect x="4" y="14" width="6" height="6" rx="1"/><rect x="14" y="14" width="6" height="6" rx="1"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="practice-grid">
+          <section class="interview-area" aria-label="Технический вопрос">
+            <article class="question-card" id="question-card">
+              <div class="question-top"><span class="topic-tag" id="question-topic"></span><span class="question-position" id="question-position"></span></div>
+              <div class="question-meta">
+                <span>SENIOR</span><span class="meta-divider"></span>
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 7v5l3 2"/></svg>
+                <span>3–5 минут на ответ</span>
+              </div>
+              <h2 id="question-title" tabindex="-1"></h2>
+              <p class="question-prompt" id="question-prompt"></p>
+              <pre class="code-block" id="question-code" hidden><code></code></pre>
+              <div class="answer-heading"><label for="answer">Твой ответ</label><span id="draft-indicator">Сформулируй своими словами</span></div>
+              <textarea id="answer" rows="6" placeholder="Как бы ты ответил на собеседовании? Объясни механизм, приведи пример и назови ограничения…" maxlength="20000" spellcheck="false"></textarea>
+              <div class="answer-hint"><span>Сначала рассуждение. Потом — проверка.</span><span id="char-count">0 символов</span></div>
+              <div class="question-actions">
+                <button class="button primary" id="reveal-button" aria-controls="reference" aria-expanded="false"><span>Раскрыть разбор</span><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m8 5 7 7-7 7"/></svg></button>
+                <button class="text-button" id="skip-button">Пропустить <span aria-hidden="true">↗</span></button>
+              </div>
+
+              <section id="reference" class="reference" hidden aria-labelledby="reference-title">
+                <div class="reference-heading"><span class="reference-icon">✓</span><div><div class="eyebrow">СВЕРЬ ХОД МЫСЛИ</div><h3 id="reference-title" tabindex="-1">Эталонный ответ</h3></div></div>
+                <p id="reference-answer"></p>
+                <div class="takeaway"><h4><span>✓</span> Ключевые тезисы</h4><ul id="reference-keys"></ul></div>
+                <div class="mistakes"><h4><span>!</span> Типичные ошибки</h4><ul id="reference-mistakes"></ul></div>
+                <div class="followup"><span>ВОПРОС ВДОГОНКУ</span><p id="reference-followup"></p></div>
+                <a class="source-link" id="reference-source" target="_blank" rel="noopener noreferrer">Открыть документацию <span aria-hidden="true">↗</span></a>
+                <div class="self-assessment">
+                  <h4>Как ты справился?</h4><p>Самооценка после сравнения с разбором.</p>
+                  <div class="grade-buttons" role="group" aria-label="Оценка ответа">
+                    <button data-grade="again"><span>↻</span> Не разобрался</button>
+                    <button data-grade="partial"><span>≈</span> Частично</button>
+                    <button data-grade="good"><span>✓</span> Уверенно</button>
+                  </div>
+                  <div id="assessment-message" class="assessment-message" aria-live="polite"></div>
+                </div>
+              </section>
+            </article>
+
+            <div id="empty-state" class="empty-state" hidden>
+              <div class="empty-icon">✓</div><h2 id="empty-title" tabindex="-1"></h2><p id="empty-description"></p>
+              <button class="button primary" id="show-all-button">Ко всем вопросам</button>
+            </div>
+            <nav class="question-navigation" id="question-navigation" aria-label="Навигация по вопросам">
+              <button class="text-button" id="previous-button"><span aria-hidden="true">←</span> Назад</button>
+              <button class="shuffle-button" id="shuffle-button" title="Случайный вопрос из текущего фильтра"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m17 3 4 4-4 4M17 13l4 4-4 4M3 7h3c5 0 7 10 12 10h3M3 17h3c2 0 3-2 5-5M14 9c1-1 2-2 4-2h3"/></svg><span>Случайный</span></button>
+              <button class="text-button next-button" id="next-button">Следующий <span aria-hidden="true">→</span></button>
+            </nav>
+            <div class="keyboard-hint"><kbd>Ctrl</kbd> + <kbd>Enter</kbd> <span>раскрыть разбор</span></div>
+          </section>
+
+          <aside class="progress-rail" aria-label="Прогресс подготовки">
+            <section class="progress-card">
+              <div class="rail-heading"><h2>Твой прогресс</h2><span class="mini-dots" aria-hidden="true">•••</span></div>
+              <div class="progress-visual">
+                <svg viewBox="0 0 160 160" aria-hidden="true"><circle class="ring-track" cx="80" cy="80" r="67"/><circle id="progress-ring" class="ring-value" cx="80" cy="80" r="67"/></svg>
+                <div class="progress-value"><strong id="progress-percent">0<span>%</span></strong><span>пройдено</span></div>
+              </div>
+              <p class="progress-caption"><strong id="progress-count">0 из 36</strong> вопросов оценено</p>
+              <div class="stats-row">
+                <div><span class="stat-dot good"></span><strong id="good-count">0</strong><span>уверенно</span></div>
+                <div><span class="stat-dot repeat"></span><strong id="repeat-count">0</strong><span>повторить</span></div>
+              </div>
+              <div id="topic-progress" class="topic-progress"></div>
+              <div class="save-status" id="save-status"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span>Прогресс сохраняется в браузере</span></div>
+              <button class="reset-button" id="reset-button">Сбросить прогресс</button>
+            </section>
+            <section class="tip-card">
+              <div class="tip-label"><span>✳</span> ПРИЁМ ДЛЯ ИНТЕРВЬЮ</div>
+              <h3>Не только «как»,<br>но и «почему».</h3>
+              <p>Хороший Senior-ответ объясняет механизм, показывает пример и называет компромисс.</p>
+              <div class="tip-flow"><span>Механизм</span><i>→</i><span>Пример</span><i>→</i><span>Вывод</span></div>
+            </section>
+          </aside>
+        </div>
+        <footer class="page-footer"><span>INTERVIEW LAB <span class="footer-slash">/</span> SENIOR .NET</span><span>Маленькие шаги. Сильные ответы.</span></footer>
+      </main>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <dialog id="about-dialog">
+      <div class="dialog-heading"><h2>Практика, которая работает</h2><button class="close-dialog" aria-label="Закрыть">×</button></div>
+      <p>Выбери тему и отвечай как на настоящем интервью. Можно проговорить ответ вслух и записать основную мысль.</p>
+      <ol class="how-to">
+        <li><strong>Дай свой ответ.</strong> Механизм, пример, ограничения. Черновик сохраняется автоматически.</li>
+        <li><strong>Открой разбор.</strong> Сверь ответ с эталоном, тезисами и типичными ошибками.</li>
+        <li><strong>Оцени себя.</strong> «Частично» и «Не разобрался» попадут в фильтр «На повторение».</li>
+      </ol>
+      <p class="dialog-note">Оценка самостоятельная: тренажёр не отправляет текст на проверку ИИ. Эталоны — ориентир; возможны другие корректные решения. Черновики и прогресс хранятся только в этом браузере и не синхронизируются между устройствами. При повторном открытии вопроса разбор снова скрыт.</p>
+      <button class="button primary close-dialog">Начать практику</button>
+    </dialog>
+    <dialog id="bank-dialog">
+      <div class="dialog-heading"><div><div class="eyebrow">36 ВОПРОСОВ · 6 ТЕМ</div><h2>Карта подготовки</h2></div><button class="close-dialog" aria-label="Закрыть">×</button></div>
+      <p class="bank-intro">Перейди к любому вопросу. Сохранённый ответ останется на месте.</p><div id="bank-list"></div>
+    </dialog>
+    <dialog id="reset-dialog">
+      <div class="dialog-heading"><h2>Начать с чистого листа?</h2><button class="close-dialog" aria-label="Закрыть">×</button></div>
+      <p>Все твои ответы и оценки в этом браузере будут удалены. Восстановить их не получится.</p>
+      <div class="dialog-actions"><button class="button secondary close-dialog">Оставить прогресс</button><button class="button danger" id="confirm-reset">Удалить и начать заново</button></div>
+    </dialog>
+    <noscript>Для работы тренажёра включи JavaScript в браузере.</noscript>
+  </body>
+</html>

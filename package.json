@@ -1,0 +1,10 @@
+{
+  "name": "senior-dotnet-interview-lab",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Тренажёр технических собеседований Senior .NET",
+  "scripts": {
+    "test": "node --test tests/*.test.js"
+  }
+}
